@@ -35,11 +35,18 @@ def upload():
         abort(401)
 
     # Instantiate your form class
-
+    uploadform = UploadForm()
+ 
     # Validate file upload on submit
-    if request.method == 'POST':
+    if request.method == 'POST' and uploadform.validate_on_submit()
         # Get file data and save to your uploads folder
+        photo = uploadform.photo.data
 
+        filename = secure_filename(photo.filename)
+
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+        return render_template('upload.html', filename)
         flash('File Saved', 'success')
         return redirect(url_for('home'))
 
