@@ -1,0 +1,13 @@
+:root {
+
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+  display: flex; 
+  flex-wrap: wrap
+}
